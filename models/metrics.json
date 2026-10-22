@@ -1,0 +1,6 @@
+{
+ "best_C": 100,
+ "cv_accuracy_mean": 0.9733333333333334,
+ "cv_accuracy_std": 0.053333333333333316,
+ "train_accuracy": 0.9866666666666667
+}

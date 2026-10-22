@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Iris Flower Classifier — In-Browser Machine Learning Demo | Rishabh Aryan</title>
+<meta name="description" content="Interactive Iris flower classification demo: a scikit-learn logistic regression model running in your browser. Move the sliders to predict setosa, versicolor or virginica with probabilities and charts.">
+<meta name="theme-color" content="#ffd6e7">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="petals" aria-hidden="true"></div>
+<header class="hero">
+  <h1>🌸 Iris Flower Classifier <span class="sub">machine learning, right in your browser ✨</span></h1>
+  <p>Move the sliders to describe a flower. A logistic regression model trained with scikit-learn on the UCI Iris dataset predicts its species — no server needed 💕</p>
+</header>
+
+<main class="grid">
+  <section class="card controls" aria-labelledby="h-measure">
+    <h2 id="h-measure">📏 Flower measurements (cm)</h2>
+    <div id="sliders"></div>
+    <div class="presets" role="group" aria-label="Load an example flower">
+      <button data-p="setosa">🌷 Setosa example</button>
+      <button data-p="versicolor">💜 Versicolor example</button>
+      <button data-p="virginica">🍑 Virginica example</button>
+      <button data-p="random">🎲 Random flower</button>
+    </div>
+  </section>
+
+  <section class="card result" aria-labelledby="h-result">
+    <h2 id="h-result">💖 Prediction</h2>
+    <div class="stage">
+      <svg id="mascot" class="mascot" viewBox="0 0 200 220" role="img" aria-label="Petalla, a chibi flower-fairy mascot">
+        <g class="halo"><circle cx="100" cy="40" r="10" fill="#ffb3d1"/><circle cx="82" cy="34" r="9" fill="#ffc8dd"/><circle cx="118" cy="34" r="9" fill="#ffc8dd"/><circle cx="100" cy="40" r="5" fill="#ffe08a"/></g>
+        <ellipse cx="100" cy="190" rx="44" ry="26" fill="#d9c2ff"/>
+        <path d="M60 190 Q100 140 140 190" fill="#ffb3d1"/>
+        <circle cx="100" cy="105" r="58" fill="#ffe9dc"/>
+        <path d="M42 100 Q50 40 100 44 Q150 40 158 100 Q150 70 128 66 Q110 80 100 64 Q88 80 72 66 Q50 70 42 100Z" fill="#c9a0ff"/>
+        <g id="eyes"><ellipse class="eye" cx="78" cy="110" rx="9" ry="12" fill="#5b2a4a"/><ellipse class="eye" cx="122" cy="110" rx="9" ry="12" fill="#5b2a4a"/><circle cx="81" cy="105" r="3.5" fill="#fff"/><circle cx="125" cy="105" r="3.5" fill="#fff"/></g>
+        <ellipse cx="66" cy="128" rx="9" ry="5" fill="#ff8fb3" opacity=".6"/><ellipse cx="134" cy="128" rx="9" ry="5" fill="#ff8fb3" opacity=".6"/>
+        <path id="mouth" d="M90 132 Q100 142 110 132" stroke="#5b2a4a" stroke-width="3" fill="none" stroke-linecap="round"/>
+      </svg>
+      <div class="bubble" id="bubble" role="status" aria-live="polite">Hi! I'm Petalla 🌸 Let's guess your flower!</div>
+    </div>
+    <div id="cards" class="species"></div>
+  </section>
+
+  <section class="card chart" aria-labelledby="h-chart">
+    <h2 id="h-chart">📊 Where your flower sits</h2>
+    <canvas id="scatter" width="560" height="380" role="img" aria-label="Scatter plot of petal length versus petal width for all 150 iris flowers, with your flower marked by a heart"></canvas>
+    <p class="legend"><span class="dot s"></span>setosa <span class="dot v"></span>versicolor <span class="dot g"></span>virginica <span>💗 your flower</span></p>
+  </section>
+</main>
+
+<footer>
+  <p>Made with 💕 by <a href="https://github.com/Rishabh-bgp">Rishabh Aryan</a> · part of the IIT Ropar &amp; NIELIT Ropar 6-Month AI/ML Industrial Training &amp; Certification Program ·
+  <a href="https://github.com/Rishabh-bgp/iris-classification">source on GitHub</a> · Data: Fisher (1936), UCI Iris, CC BY 4.0</p>
+</footer>
+<script src="app.js"></script>
+</body>
+</html>
