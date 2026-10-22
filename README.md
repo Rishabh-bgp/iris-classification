@@ -80,7 +80,8 @@ app/main.py                           FastAPI app: GET /health, POST /predict
 tests/test_api.py                     pytest: API, validation, dataset, JSON-export parity with scikit-learn
 web/                                  static demo (index.html, style.css, app.js, model.json, iris.json)
 Dockerfile, docker-compose.yml        local deployment (API on :8000, demo on :8080)
-.github/workflows/                    ci.yml (ruff + pytest), pages.yml (deploy web/ to GitHub Pages)
+.github/workflows/ci.yml              CI: ruff + pytest on Python 3.12 and 3.13
+gh-pages branch                       published copy of web/ served by GitHub Pages
 docs/                                 extended documentation
 ```
 
