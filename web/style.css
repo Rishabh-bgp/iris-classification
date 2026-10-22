@@ -1,0 +1,49 @@
+:root{--baby:#ffd6e7;--hot:#d6246e;--rose:#e75480;--lav:#b79ced;--lilac:#e9dcff;--peach:#ffd8be;--cream:#fff8f0;--ink:#4a1d3a;--muted:#6e4560}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Nunito","Segoe UI",system-ui,sans-serif;color:var(--ink);
+ background:linear-gradient(135deg,var(--baby),var(--lilac) 45%,var(--peach) 80%,var(--cream));min-height:100vh;overflow-x:hidden}
+a{color:var(--hot)}
+.hero{text-align:center;padding:2.2rem 1rem 1rem}
+.hero h1{margin:0;font-size:clamp(1.8rem,4vw,2.8rem);color:var(--hot);text-shadow:0 2px 0 #fff}
+.hero .sub{display:block;font-size:1rem;color:var(--muted);font-weight:600}
+.hero p{max-width:640px;margin:.8rem auto 0;color:var(--muted)}
+.grid{display:grid;gap:1.2rem;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));max-width:1200px;margin:0 auto;padding:1rem}
+.card{background:rgba(255,255,255,.82);border:2px solid #ffc2da;border-radius:26px;padding:1.2rem 1.4rem;box-shadow:0 8px 24px rgba(214,36,110,.15);backdrop-filter:blur(6px)}
+.card h2{margin:.2rem 0 1rem;font-size:1.2rem;color:var(--hot)}
+.slider{margin-bottom:1rem}
+.slider label{display:flex;justify-content:space-between;font-weight:700}
+.slider output{background:var(--baby);border-radius:999px;padding:0 .6rem;color:var(--hot)}
+input[type=range]{width:100%;accent-color:var(--rose);height:28px}
+.presets{display:flex;flex-wrap:wrap;gap:.5rem}
+button{font:inherit;font-weight:700;border:0;border-radius:999px;padding:.55rem 1rem;cursor:pointer;color:#fff;
+ background:linear-gradient(135deg,var(--rose),var(--lav));box-shadow:0 4px 10px rgba(214,36,110,.25);transition:transform .15s}
+button:hover{transform:translateY(-2px) scale(1.03)}
+button:focus-visible,input:focus-visible{outline:3px solid var(--hot);outline-offset:2px}
+.stage{display:flex;align-items:center;gap:.6rem}
+.mascot{width:140px;flex:none;transition:transform .3s}
+.mascot.bounce{animation:bounce .6s}
+@keyframes bounce{30%{transform:translateY(-14px) rotate(-4deg)}60%{transform:translateY(0) rotate(3deg)}}
+.halo{transform-origin:100px 40px;animation:spin 6s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.bubble{position:relative;background:#fff;border:3px solid var(--ink);border-radius:22px;padding:.8rem 1rem;font-weight:800;font-size:1.05rem}
+.bubble::before{content:"";position:absolute;left:-16px;top:40%;border:8px solid transparent;border-right:12px solid var(--ink)}
+.species{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem;margin-top:1rem}
+.sp{position:relative;border-radius:18px;padding:.7rem;text-align:center;border:2px solid transparent;background:var(--cream);overflow:hidden;transition:transform .25s}
+.sp .emoji{font-size:1.8rem}
+.sp .name{font-weight:800}
+.sp .bar{height:10px;border-radius:999px;background:#f3e3ee;margin-top:.4rem;overflow:hidden}
+.sp .bar span{display:block;height:100%;background:linear-gradient(90deg,var(--rose),var(--lav));transition:width .4s}
+.sp .pct{font-size:.9rem;color:var(--muted);font-weight:700}
+.sp.win{border-color:var(--hot);transform:translateY(-4px);box-shadow:0 6px 18px rgba(214,36,110,.3)}
+.sp.win::after{content:"✨";position:absolute;top:4px;right:8px;animation:twinkle 1.2s infinite}
+@keyframes twinkle{50%{opacity:.2;transform:scale(1.5)}}
+canvas{width:100%;height:auto;background:var(--cream);border-radius:18px}
+.legend{display:flex;gap:1rem;flex-wrap:wrap;color:var(--muted);font-weight:700}
+.dot{display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:4px;vertical-align:middle}
+.dot.s{background:#e75480}.dot.v{background:#8a5cd6}.dot.g{background:#e8893c}
+footer{text-align:center;color:var(--muted);padding:1.5rem 1rem 2.5rem;font-size:.9rem}
+.petals{position:fixed;inset:0;pointer-events:none;z-index:0}
+.petal{position:absolute;top:-20px;width:14px;height:12px;background:#ffb7d0;border-radius:12px 1px 12px 1px;opacity:.85;animation:fall linear infinite}
+@keyframes fall{to{transform:translate(80px,110vh) rotate(540deg)}}
+main,header,footer{position:relative;z-index:1}
+@media (prefers-reduced-motion:reduce){.petals,.halo,.sp.win::after{display:none;animation:none}.mascot.bounce{animation:none}}
